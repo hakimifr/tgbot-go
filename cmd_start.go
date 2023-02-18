@@ -10,7 +10,7 @@ import (
 func start_cmd(bot *gotgbot.Bot, context *ext.Context) error {
     _, err := context.EffectiveMessage.Reply(bot, "Hi!", &gotgbot.SendMessageOpts{})
     if err != nil {
-        return fmt.Errorf("[startcmd] Failed to reply message")
+        return fmt.Errorf("[%s] Failed to reply message: %w", getFunctionName(), err)
     }
     return nil
 }
