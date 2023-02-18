@@ -67,11 +67,3 @@ func main() {
     log.Printf("%s has been started", bot.User.Username)
     updater.Idle()
 }
-
-func start_cmd(bot *gotgbot.Bot, context *ext.Context) error {
-    _, err := context.EffectiveMessage.Reply(bot, "Hi!", &gotgbot.SendMessageOpts{})
-    if err != nil {
-        return fmt.Errorf("[startcmd] Failed to reply message")
-    }
-    return nil
-}
