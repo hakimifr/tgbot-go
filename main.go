@@ -5,23 +5,11 @@ import (
     "log"
     "os"
     "time"
-    "runtime"
 
     "github.com/PaulSonOfLars/gotgbot/v2"
     "github.com/PaulSonOfLars/gotgbot/v2/ext"
     "github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 )
-
-func check(err error, message string) {
-    if err != nil {
-        panic(message + ": " + err.Error())
-    }
-}
-
-func getFunctionName() string {
-	pc, _, _, _ := runtime.Caller(1)
-	return runtime.FuncForPC(pc).Name()
-}
 
 func main() {
     token, err := os.ReadFile(".token")
