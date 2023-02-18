@@ -54,7 +54,7 @@ func main() {
     })
 
     dispatcher := updater.Dispatcher
-    dispatcher.AddHandler(handlers.NewCommand("start", start_cmd))
+    dispatcher.AddHandler(handlers.NewCommand("start", cmd_start))
 
     err = updater.StartPolling(bot, &ext.PollingOpts{
         DropPendingUpdates: true,
