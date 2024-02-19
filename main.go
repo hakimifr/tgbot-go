@@ -49,6 +49,7 @@ func main() {
     updater := ext.NewUpdater(dispatcher, nil)
 
     dispatcher.AddHandler(handlers.NewCommand("start", cmd_start))
+    dispatcher.AddHandler(handlers.NewCommand("fastpurge", cmd_fastpurge))
 
     err = updater.StartPolling(bot, &pollingopts)
     check(err, "Failed to start polling")

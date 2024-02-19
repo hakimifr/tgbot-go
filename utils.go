@@ -12,6 +12,21 @@ func check(err error, message string) {
     }
 }
 
+func checkNoPanic(err error, message string) {
+    if err != nil {
+        fmt.Println(message + ": " + err.Error())
+    }
+}
+
+// Python's range()
+func pyRange(start int64, stop int64) []int64 {
+    var r []int64
+    for i := start; i < stop; i++ {
+        r = append(r, i)
+    }
+    return r
+}
+
 func getFunctionName() string {
 	pc, _, _, _ := runtime.Caller(1)
 	return runtime.FuncForPC(pc).Name()
