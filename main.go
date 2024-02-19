@@ -11,16 +11,14 @@ import (
 )
 
 func main() {
-    token, err := os.ReadFile(".token")
-    check(err, "Cannot read token file")
+    token := os.Getenv("BOT_TOKEN")
 
-    if string(token) == "" {
+    if token == "" {
         panic("Token is empty")
     }
-    var TOKEN string = string(token[0:len(token)-1]) // remove trailing \n
 
     botopts := gotgbot.BotOpts{}
-    bot, err := gotgbot.NewBot(string(TOKEN), &botopts)
+    bot, err := gotgbot.NewBot(token, &botopts)
     check(err, "Failed to create bot")
 
     // create updater and dispatcher
